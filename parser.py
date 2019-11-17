@@ -46,9 +46,6 @@ def make_subcommand(
 			and callable(subcommand_module.main)):
 		# Set the `main` function of sub-module as the default `_main` argument if exists.
 		parser.set_defaults(_main=subcommand_module.main)
-	else:
-		# Set the function which shows the help text as the default `_main` argument.
-		parser.set_defaults(_main=lambda *args: parser.print_help())
 	
 	# Define the sub-command parser by calling the `subparser` function of sub-module.
 	subcommand_module.subparser(parser)
